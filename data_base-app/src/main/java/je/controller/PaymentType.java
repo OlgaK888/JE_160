@@ -16,7 +16,7 @@ public class PaymentType {
     private final PaymentTypeService paymentTypeService;
 
     @GetMapping(value = "/payment/type")
-    public PaymentTypeDTO getPaymentType(@RequestParam(value = "id", required = false) Long id) {
+    public PaymentTypeDTO getPaymentType(@RequestParam(value = "id", required = true) Long id) {
 
         return objectMapper.convertValue(paymentTypeService.findById(id), PaymentTypeDTO.class);
     }

@@ -2,6 +2,7 @@ package je.dto;
 
 import je.model.Product;
 import je.model.PurchaseOrder;
+import je.model.ShoppingCart;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,8 +24,8 @@ public class AccountDTO {
     private long phoneNumber;
     private String country;
     private String email;
-    private Collection<Product> ShoppingCart;
-    private Collection<PurchaseOrder> orderToBy;
-    private Collection<PurchaseOrder> orderToSell;
+    private ShoppingCartDTO shoppingCart;
+    //private Collection<PurchaseOrder> orderToBy;
+    //private Collection<PurchaseOrder> orderToSell;
 
 }

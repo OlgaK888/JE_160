@@ -25,12 +25,19 @@ public class Product {
     private double rating;
     private long accountSellerId;
 
-    @ManyToMany
+    /*@ManyToMany
     @JoinTable(
             name = "purchase_order_product",
             joinColumns = @JoinColumn(name = "product_id")
             , inverseJoinColumns = @JoinColumn(name = "purchase_order_id"))
-    private Collection<PurchaseOrder> purchaseOrders;
+    private Collection<PurchaseOrder> purchaseOrders;*/
+
+    @ManyToMany
+    @JoinTable(
+            name = "shopping_cart_product",
+            joinColumns = @JoinColumn(name = "product_id")
+            , inverseJoinColumns = @JoinColumn(name = "shopping_cart_id"))
+    private Collection<ShoppingCart> shoppingCarts;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id")

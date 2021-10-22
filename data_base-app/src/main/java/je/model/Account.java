@@ -26,16 +26,19 @@ public class Account {
     private String country;
     private String email;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    /*@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
-    private Collection<Product> ShoppingCart;
+    private Collection<Product> ShoppingCart;*/
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "account_id")
-    private Collection<PurchaseOrder> orderToBy;
+    @OneToOne(cascade = CascadeType.ALL)
+    private ShoppingCart shoppingCart;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    /*@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
-    private Collection<PurchaseOrder> orderToSell;
+    private Collection<PurchaseOrder> orderToBy;*/
+
+    /*@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "account_id")
+    private Collection<PurchaseOrder> orderToSell;*/
 
 }

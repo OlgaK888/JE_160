@@ -25,21 +25,24 @@ public class PurchaseOrder {
     private BigDecimal sum;
     private String status;
 
-    @ManyToOne
-    private Account accountForBuy;
+    /*@ManyToOne
+    private Account accountForBuy;*/
 
-    @ManyToOne
-    private Account accountForSell;
+    /*@ManyToOne
+    private Account accountForSell;*/
 
     @OneToOne(cascade = CascadeType.ALL)
     private Delivery delivery;
 
-    @ManyToMany(cascade ={CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH},
+    @OneToOne
+    private ShoppingCart shoppingCart;
+
+    /*@ManyToMany(cascade ={CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH},
             fetch = FetchType.LAZY)
     @JoinTable(name = "purchase_order_product",
             joinColumns = @JoinColumn(name = "purchase_order_id")
             , inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private Collection<Product> products;
+    private Collection<Product> products;*/
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "purchaseOrder", fetch = FetchType.LAZY)
     private Collection<Status> statuses;

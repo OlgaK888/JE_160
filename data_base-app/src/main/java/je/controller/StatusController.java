@@ -16,7 +16,7 @@ public class StatusController {
     private final StatusService statusService;
 
     @GetMapping(value = "/status")
-    public StatusDTO getStatus(@RequestParam(value = "id", required = false) Long id) {
+    public StatusDTO getStatus(@RequestParam(value = "id", required = true) Long id) {
 
         return objectMapper.convertValue(statusService.findById(id), StatusDTO.class);
     }

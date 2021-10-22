@@ -16,7 +16,7 @@ public class DeliveryController {
     private final DeliveryService deliveryService;
 
     @GetMapping(value = "/delivery")
-    public DeliveryDTO getDelivery(@RequestParam(value = "id", required = false) Long id) {
+    public DeliveryDTO getDelivery(@RequestParam(value = "id", required = true) Long id) {
 
         return objectMapper.convertValue(deliveryService.findById(id), DeliveryDTO.class);
     }

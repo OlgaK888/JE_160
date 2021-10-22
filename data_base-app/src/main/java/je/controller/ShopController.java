@@ -16,7 +16,7 @@ public class ShopController {
     private final ShopService shopService;
 
     @GetMapping(value = "/shop")
-    public ShopDTO getShop(@RequestParam(value = "id", required = false) Long id) {
+    public ShopDTO getShop(@RequestParam(value = "id", required = true) Long id) {
 
         return objectMapper.convertValue(shopService.findById(id), ShopDTO.class);
     }

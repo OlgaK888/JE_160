@@ -16,7 +16,7 @@ public class PurchaseOrderController {
     private final PurchaseOrderService purchaseOrderService;
 
     @GetMapping(value = "/order")
-    public PurchaseOrderDTO getPurchaseOrder(@RequestParam(value = "id", required = false) Long id) {
+    public PurchaseOrderDTO getPurchaseOrder(@RequestParam(value = "id", required = true) Long id) {
 
         return objectMapper.convertValue(purchaseOrderService.findById(id), PurchaseOrderDTO.class);
     }

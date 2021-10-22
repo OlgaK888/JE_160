@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Shop name</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="header">
+    <div class="text">Furniture store</div>
+</div>
+<div class="imagesContainer">
+    <img class="imageItem" src="https://www.topdom.ru/uploaded/article/built-in-furniture/75.jpg">
+    <img class="imageItem" src="https://interoline.by/assets/images/products/Gwinner/living/Gwinner-lucca-7.jpg">
+    <img class="imageItem" src="https://interoline.by/assets/images/products/Gwinner/living/Gviner.Fellini13.jpg">
+</div>
+<script type="text/javascript" src="script.js"></script>
+<br>
+<form action="/web-app/products/list" method="get" >
+    <button type="submit">Catalog</button>
+</form>
+<br>
+
+</body>
+</html>

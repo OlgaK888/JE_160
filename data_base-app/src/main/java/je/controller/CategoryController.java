@@ -16,7 +16,7 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     @GetMapping(value = "/category")
-    public CategoryDTO getCategory(@RequestParam(value = "id", required = false) Long id) {
+    public CategoryDTO getCategory(@RequestParam(value = "id", required = true) Long id) {
 
         return objectMapper.convertValue(categoryService.findById(id), CategoryDTO.class);
     }

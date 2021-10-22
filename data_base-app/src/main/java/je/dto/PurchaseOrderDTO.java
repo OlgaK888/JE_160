@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.ZonedDateTime;
-import java.util.List;
+import java.util.Collection;
 
 @Data
 @AllArgsConstructor
@@ -24,7 +24,7 @@ public class PurchaseOrderDTO {
     private BigDecimal sum;
     private String status;
     private DeliveryDTO delivery;
-    private List<ProductDTO> products;
-    private List<StatusDTO> statuses;
+    //private Collection<ProductDTO> products;
+    private Collection<StatusDTO> statuses;
 
 }

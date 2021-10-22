@@ -1,0 +1,25 @@
+body {
+	background-color: #e5d4c8;
+}
+
+.header {
+	height: 150px;
+	width: 100%;
+	background-color: #58514b;
+	font-size: 80px;
+	font-family: sans-serif;
+}
+
+.text {
+	padding-left: 800px;
+	padding-top: 20px;
+}
+
+.imagesContainer {
+	margin: 0px 3px;
+}
+
+.imageItem {
+	height: 300px;
+	width: 33%;
+}

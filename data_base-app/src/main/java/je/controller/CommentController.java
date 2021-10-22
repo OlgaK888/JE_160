@@ -16,7 +16,7 @@ public class CommentController {
     private final CommentService commentService;
 
     @GetMapping(value = "/comment")
-    public CommentDTO getComment(@RequestParam(value = "id", required = false) Long id) {
+    public CommentDTO getComment(@RequestParam(value = "id", required = true) Long id) {
 
         return objectMapper.convertValue(commentService.findById(id), CommentDTO.class);
     }

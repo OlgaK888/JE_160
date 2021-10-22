@@ -16,7 +16,7 @@ public class ProductController {
     private final ProductService productService;
 
     @GetMapping(value = "/product")
-    public ProductDTO getProduct(@RequestParam(value = "id", required = false) Long id) {
+    public ProductDTO getProduct(@RequestParam(value = "id", required = true) Long id) {
 
         return objectMapper.convertValue(productService.findById(id), ProductDTO.class);
     }

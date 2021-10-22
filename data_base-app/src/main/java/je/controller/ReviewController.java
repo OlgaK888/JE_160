@@ -16,7 +16,7 @@ public class ReviewController {
     private final ReviewService reviewService;
 
     @GetMapping(value = "/review")
-    public ReviewDTO getReview(@RequestParam(value = "id", required = false) Long id) {
+    public ReviewDTO getReview(@RequestParam(value = "id", required = true) Long id) {
 
         return objectMapper.convertValue(reviewService.findById(id), ReviewDTO.class);
     }
