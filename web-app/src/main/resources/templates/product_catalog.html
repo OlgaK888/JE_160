@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product catalog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form action="/web-app/" method="get">
+    <button type="submit">To home page</button>
+</form>
+<h1>Product catalog</h1>
+<hr>
+<div th:if="${not #lists.isEmpty(productdtos)}">
+    <div th:each="productdto : ${productdtos}">
+        <form id="product" method="get">
+            <input name="id" type="text" th:value= "${productdto.id}" id="id" hidden="true"/>
+        </form>
+        <p th:text="'Product name: ' + ${productdto.name}" />
+        <p th:text="'Price: ' + ${productdto.price}" />
+        <p th:text="'Rating: ' + ${productdto.rating}" />
+        <div >
+            <button type="submit" form="product" formaction="/web-app//every/product" >More details</button>
+        </div>
+        <hr>
+    </div>
+</div>
+</body>
+</html>

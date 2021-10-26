@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<html xmlns:th="http://www.thymeleaf.org">
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -9,7 +8,8 @@
 </head>
 <body>
 <div class="header">
-    <div class="text">Furniture store</div>
+    <div class="text">Furniture store </div>
+    <div class="text">Calypso </div>
 </div>
 <div class="imagesContainer">
     <img class="imageItem" src="https://www.topdom.ru/uploaded/article/built-in-furniture/75.jpg">
@@ -18,10 +18,29 @@
 </div>
 <script type="text/javascript" src="script.js"></script>
 <br>
-<form action="/web-app/products/list" method="get" >
+<br>
+<form  id="search" method="get">
+<tr>
+    <td>Insert data for search</td>
+    <td><input type="text" placeholder="" name="part_of_name"
+               required pattern="^[a-zA-Z]+$"/></td>
+</tr>
+    <button type="submit" formaction="/web-app/search/partial">Find</button>
+</form>
+<br>
+<br>
+<form action="/web-app/category/list" method="get" >
+    <button type="submit">Product category</button>
+</form>
+<br>
+<br>
+<form action="/web-app/products/catalog" method="get" >
     <button type="submit">Catalog</button>
 </form>
 <br>
-
+<br>
+<form action="/web-app/shops/list" method="get" >
+    <button type="submit">Our shops</button>
+</form>
 </body>
 </html>

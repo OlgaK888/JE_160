@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form action="/web-app/" method="get">
+    <button type="submit">To home page</button>
+</form>
+<h1>Product category</h1>
+<hr>
+<div th:if="${not #lists.isEmpty(categorydtos)}">
+    <div th:each="categorydto : ${categorydtos}">
+        <form id="category" method="get">
+            <input name="id" type="text" th:value= "${categorydto.id}" id="id" hidden="true"/>
+        </form>
+        <p th:text="'Category: ' + ${categorydto.name}" />
+        <form>
+        <input type="button" value="Products"
+               onClick='location.href="/web-app/category/products/{categorydto.id}"'>
+        </form>
+        <hr>
+    </div>
+</div>
+</body>
+</html>
+

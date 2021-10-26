@@ -1,0 +1,32 @@
+body {
+background-color: #e5d4c8;
+}
+
+.catalog {
+height: 80px;
+width: 100%;
+background-color: #58514b;
+font-size: 40px;
+font-family: sans-serif;
+}
+
+.text {
+text-align: left;
+padding-top: 5px;
+}
+
+.productCard {
+
+}
+
+.productImg {
+width: 250px;
+height: 180px;
+}
+
+.productText {
+font-size: 80px;
+position: absolute;
+margin: 40px;
+font-family: sans-serif;
+}

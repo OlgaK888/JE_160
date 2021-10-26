@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form id="home_page" method="get" ></form>
+<form id="product" method="get">
+    <input name="id" type="text" th:value= "${productdto.id}" id="id" hidden="true"/>
+</form>
+<button type="submit" form="home_page"  formaction="/web-app/">To home page</button>
+<br>
+<h3><t th:text="${productdto.name}" /></h3>
+<br>
+<p th:text="'Product name: ' + ${productdto.name}" />
+<p th:text="'Description: ' + ${productdto.description}" />
+<p th:text="'Price: ' + ${productdto.price}" />
+<p th:text="'Rating: ' + ${productdto.rating}" />
+<br>
+<p th:text="'Review: ' + ${productdto.review.message}" />
+<p th:text="'Comment: ' + ${productdto.comment.message}" />
+<br>
+<div class="imagesContainer">
+    <img class="imageItem" src="https://interoline.by/assets/images/products/Gwinner/living/Gwinner-lucca-7.jpg">
+</div>
+</body>
+</html>
