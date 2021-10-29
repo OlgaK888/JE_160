@@ -1,6 +1,8 @@
 package by.ita.je.controller;
 
+import by.ita.je.dto.CategoryDTO;
 import by.ita.je.dto.ProductDTO;
+import by.ita.je.model.Category;
 import by.ita.je.model.Product;
 import by.ita.je.service.api.BusinessService;
 import by.ita.je.service.api.ProductService;
@@ -72,8 +74,8 @@ public class BusinessController {
 
     }*/
 
-    @GetMapping("/products/by/category/{id}")
-    public Collection<ProductDTO> getProductsByCategory(@PathVariable ("id") String id) {
+    @GetMapping("/products/by/category")
+    public Collection<ProductDTO> getProductsByCategory(@RequestParam(value = "id", required = true) Long id) {
 
         Collection<Product> productCollection = businessService.getProductsByCategory(id);
         Collection<ProductDTO> productDTOCollection = productCollection.stream()
@@ -82,6 +84,12 @@ public class BusinessController {
 
         return productDTOCollection;
 
+    }
+
+    @GetMapping("/category/by/product")
+    public CategoryDTO getCategoryByProduct(@RequestParam(value = "id", required = true) Long id) {
+
+        return objectMapper.convertValue(businessService.getCategoryByProduct(id), CategoryDTO.class);
     }
 
 

@@ -1,5 +1,6 @@
 package by.ita.je.dto;
 
+import by.ita.je.model.Category;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Collection;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -17,4 +20,5 @@ public class CategoryDTO {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
+    //private List<ProductDTO> products;
 }

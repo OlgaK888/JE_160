@@ -1,0 +1,13 @@
+by\ita\je\service\CategoryServiceImplTest.class
+by\ita\je\service\ShopServiceImplTest.class
+by\ita\je\service\ProductServiceImplTest.class
+by\ita\je\service\ShoppingCartServiceImplTest.class
+by\ita\je\service\DeliveryServiceImplTest.class
+by\ita\je\service\ReviewServiceImplTest.class
+by\ita\je\controller\AccountControllerTestIT.class
+by\ita\je\dao\SearcherCriteriaDAOTestIT.class
+by\ita\je\service\PurchaseOrderServiceImplTest.class
+by\ita\je\service\PaymentTypeServiceImplTest.class
+by\ita\je\service\StatusServiceImplTest.class
+by\ita\je\service\CommentServiceImplTest.class
+by\ita\je\service\AccountServiceImplTest.class

@@ -12,19 +12,20 @@
 </form>
 <h1>Product catalog</h1>
 <hr>
-<div th:if="${not #lists.isEmpty(productdtos)}">
-    <div th:each="productdto : ${productdtos}">
+<div th:if="${not #lists.isEmpty(productDTOs)}">
+    <div th:each="productDTO : ${productDTOs}">
         <form id="product" method="get">
-            <input name="id" type="text" th:value= "${productdto.id}" id="id" hidden="true"/>
+            <input name="id" type="text" th:value= "${productDTO.id}" id="id" hidden="true"/>
         </form>
-        <p th:text="'Product name: ' + ${productdto.name}" />
-        <p th:text="'Price: ' + ${productdto.price}" />
-        <p th:text="'Rating: ' + ${productdto.rating}" />
+        <p th:text="'Product name: ' + ${productDTO.name}" />
+        <p th:text="'Price: ' + ${productDTO.price}" />
+        <p th:text="'Rating: ' + ${productDTO.rating}" />
         <div >
-            <button type="submit" form="product" formaction="/web-app//every/product" >More details</button>
+            <button type="submit" form="product" formaction="/web-app/every/product" >More details</button>
         </div>
         <hr>
     </div>
 </div>
 </body>
 </html>
+

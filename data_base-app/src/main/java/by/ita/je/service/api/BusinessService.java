@@ -1,6 +1,7 @@
 package by.ita.je.service.api;
 
 import by.ita.je.model.Account;
+import by.ita.je.model.Category;
 import by.ita.je.model.Product;
 import by.ita.je.model.ShoppingCart;
 
@@ -18,7 +19,9 @@ public interface BusinessService {
 
     //Collection<Product> findProductsByCategory(String categoryName);
 
-    Collection<Product> getProductsByCategory(String id);
+    Collection<Product> getProductsByCategory(Long id);
+
+    Category getCategoryByProduct(Long id);
 
 }
 

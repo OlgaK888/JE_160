@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
@@ -18,7 +19,7 @@ public class SearcherController {
     private final ObjectMapper objectMapper;
     private final SearcherService searcherService;
 
-    @PostMapping("/search/rating")
+    /*@PostMapping("/search/rating")
     public Collection<ProductDTO> findByRating(@RequestBody FilterByRatingDTO filterByRatingDTO) {
         return searcherService.findByRating(filterByRatingDTO.getRatingFrom(),
                 filterByRatingDTO.getRatingTo()).stream()
@@ -39,14 +40,17 @@ public class SearcherController {
         return searcherService.findByCategory(filterByCategoryDTO.getNameCategory()).stream()
                 .map(product -> objectMapper.convertValue(product, ProductDTO.class))
                 .collect(Collectors.toList());
-    }
+    }*/
 
-    @PostMapping("/search/category/rating/price")
+    @PostMapping("/search/category/price/rating")
     public Collection<ProductDTO> findByCategoryPriceRating(
             @RequestBody FilterByCategoryPriceRatingDTO filterByCategoryPriceRatingDTO) {
-        return searcherService.findByCategoryPriceRating(filterByCategoryPriceRatingDTO.getNameCategory(),
-                filterByCategoryPriceRatingDTO.getPriceFrom(), filterByCategoryPriceRatingDTO.getPriceTo(),
-                filterByCategoryPriceRatingDTO.getRatingFrom(), filterByCategoryPriceRatingDTO.getRatingTo()).stream()
+        return searcherService.findByCategoryPriceRating(
+                filterByCategoryPriceRatingDTO.getNameCategory(),
+                filterByCategoryPriceRatingDTO.getPriceFrom(),
+                filterByCategoryPriceRatingDTO.getPriceTo(),
+                filterByCategoryPriceRatingDTO.getRatingFrom(),
+                filterByCategoryPriceRatingDTO.getRatingTo()).stream()
                 .map(product -> objectMapper.convertValue(product, ProductDTO.class))
                 .collect(Collectors.toList());
     }

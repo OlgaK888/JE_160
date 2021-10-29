@@ -23,7 +23,6 @@ public class PurchaseOrder {
     private long id;
     private ZonedDateTime orderTime;
     private BigDecimal sum;
-    private String status;
 
     /*@ManyToOne
     private Account accountForBuy;*/

@@ -1,22 +1,17 @@
 package by.ita.je.service;
 
-import by.ita.je.dto.CategoryDTO;
-import by.ita.je.dto.FilterByPartOfNameDTO;
-import by.ita.je.dto.ProductDTO;
-import by.ita.je.dto.ShopDTO;
+import by.ita.je.dto.*;
 import by.ita.je.service.api.WebAppService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
@@ -49,29 +44,13 @@ public class WebAppServiceImpl implements WebAppService {
         return list;
     }
 
-   /* @Override
-    public Collection<ProductDTO> getAllProductsByCategory(String categoryName) {
-        ResponseEntity<ProductDTO[]> responseEntity = restTemplate.getForEntity(url
-                        + "products/by/category/{categoryName}", ProductDTO[].class);
-        List<ProductDTO> list = List.of(responseEntity.getBody());
-        return list;
-    }*/
-
     @Override
-    public Collection<ProductDTO> findAllProductsByCategory(String id) {
+    public Collection<ProductDTO> findAllProductsByCategory(Long id) {
         ResponseEntity<ProductDTO[]> responseEntity = restTemplate.getForEntity(url
-                + "products/by/category/{id}", ProductDTO[].class);
+                + "products/by/category?id=" + id, ProductDTO[].class);
         List<ProductDTO> list = List.of(responseEntity.getBody());
         return list;
     }
-
-    /*@Override
-    public Collection<ProductDTO> getProductsByCategory(String name) {
-        ProductDTO[] productDTO = restTemplate.getForObject(url + "products/by/category/{name}",
-                ProductDTO[].class);
-        List<ProductDTO> list = List.of(productDTO);
-        return list;
-    }*/
 
     @Override
     public ProductDTO getProduct(Long id) {
@@ -81,10 +60,19 @@ public class WebAppServiceImpl implements WebAppService {
     }
 
     @Override
+    public List<ProductDTO> findByFilter(String nameCategory, BigDecimal priceFrom, BigDecimal priceTo,
+                                         double ratingFrom, double ratingTo) {
+        FilterByCategoryPriceRatingDTO filteredDto = new FilterByCategoryPriceRatingDTO(nameCategory, priceFrom, priceTo,
+                ratingFrom, ratingTo);
+        ResponseEntity<ProductDTO[]> responseEntity = restTemplate.postForEntity(url + "/search/category/price/rating",
+                filteredDto, ProductDTO[].class);
+        List<ProductDTO> list = Arrays.asList(Objects.requireNonNull(responseEntity.getBody()));
+        return list;
+    }
+
+    @Override
     public List<ProductDTO> findByPartOfName(String partOfName) {
         FilterByPartOfNameDTO filteredDto = new FilterByPartOfNameDTO(partOfName);
-        //List<ProductDTO> list = null;
-        //if (filteredDto.getPartOfName() != "") {
             ResponseEntity<ProductDTO[]> responseEntity = restTemplate.postForEntity(url + "search/partial",
                     filteredDto, ProductDTO[].class);
         List<ProductDTO> list = List.of(responseEntity.getBody());

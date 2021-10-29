@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,17 +12,15 @@
 </form>
 <h1>Product category</h1>
 <hr>
-<div th:if="${not #lists.isEmpty(categorydtos)}">
-    <div th:each="categorydto : ${categorydtos}">
+<div th:if="${not #lists.isEmpty(categoryDTOs)}">
+    <div th:each="categoryDTO : ${categoryDTOs}">
         <form id="category" method="get">
-            <input name="id" type="text" th:value= "${categorydto.id}" id="id" hidden="true"/>
+            <input name="id" type="text" th:value= "${categoryDTO.id}" id="id" hidden="true"/>
         </form>
-        <p th:text="'Category: ' + ${categorydto.name}" />
-        <form>
-        <input type="button" value="Products"
-               onClick='location.href="/web-app/category/products/{categorydto.id}"'>
-        </form>
-        <hr>
+        <p th:text="'Category: ' + ${categoryDTO.name}" />
+        <button>
+        <a th:href="@{/category/products(id=${categoryDTO.id})}">Products</a>
+        </button>
     </div>
 </div>
 </body>

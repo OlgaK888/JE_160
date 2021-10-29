@@ -1,27 +1,21 @@
 package by.ita.je.controller;
 
-import by.ita.je.dto.*;
-import by.ita.je.model.Product;
+import by.ita.je.dto.CategoryDTO;
+import by.ita.je.dto.FilterByCategoryPriceRatingDTO;
+import by.ita.je.dto.ProductDTO;
+import by.ita.je.dto.ShopDTO;
 import by.ita.je.service.api.WebAppService;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import java.math.BigDecimal;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 
 @AllArgsConstructor
 @Controller
 public class WebAppController {
 
-    //private final String url="http://localhost:8003/data_base-app/";
     private final WebAppService service;
 
     @GetMapping(value = "/")
@@ -29,65 +23,49 @@ public class WebAppController {
         return "home_page";
     }
 
-    /*@GetMapping(value = "/products/catalog")
-    public String getProductCatalog(Model model){
-        ResponseEntity<ProductDTO[]> responseEntity = restTemplate.getForEntity(url + "products",
-                ProductDTO[].class);
-        List<ProductDTO> list = List.of(responseEntity.getBody());
-        model.addAttribute("productdtos", list);
-        return "product_catalog";
-    }*/
-
     @GetMapping(value = "/products/catalog")
     public String getProductCatalog(Model model){
-        model.addAttribute("productdtos", service.getProductCatalog());
+        model.addAttribute("productDTOs", service.getProductCatalog());
         return "product_catalog";
     }
 
     @GetMapping(value = "/category/list")
     public String getAllCategories(Model model){
-        model.addAttribute("categorydtos", service.getAllCategories());
+        model.addAttribute("categoryDTOs", service.getAllCategories());
         return "catalog";
     }
 
-    /*@GetMapping(value = "/category/products/{name}")
-    //public String getProductsByCategory(@RequestParam(value = "name", required = true)String name, Model model){
-    public String getAllProductsByCategory(@PathVariable ("name") String categoryName, Model model){
-        model.addAttribute("productdtos", service.getAllProductsByCategory(categoryName));
-        return "product_catalog";
-    }*/
-
-    @GetMapping(value = "/category/products/{id}")
-    public String findAllProductsByCategory(@PathVariable ("id") String id, Model model){
-        model.addAttribute("productdtos", service.findAllProductsByCategory(id));
+    @GetMapping(value = "/category/products")
+    public String findAllProductsByCategory(@RequestParam(value = "id", required = true) Long id, Model model){
+        model.addAttribute("productDTOs", service.findAllProductsByCategory(id));
         return "product_catalog";
     }
 
-    /*@GetMapping(value = "/shops/list")
-    public String getAllShop(Model model){
-        ResponseEntity<ShopDTO[]> responseEntity = restTemplate.getForEntity(url + "shops",
-                ShopDTO[].class);
-        List<ShopDTO> list = List.of(responseEntity.getBody());
-        model.addAttribute("shopdtos", list);
-        return "shop_list";
-    }*/
 
     @GetMapping(value = "/shops/list")
     public String getAllShops(Model model){
-        model.addAttribute("shopdtos", service.getAllShops());
+        model.addAttribute("shopDTOs", service.getAllShops());
         return "shop_list";
     }
 
     @GetMapping(value = "/every/product")
     public String getProduct(@RequestParam(value = "id", required = true) Long id, Model model){
-        model.addAttribute("productdto", service.getProduct(id));
+        model.addAttribute("productDTO", service.getProduct(id));
         return "product";
+    }
+
+    @GetMapping("/search/filtered")
+    public String findByFilter(@ModelAttribute FilterByCategoryPriceRatingDTO filteredDto, Model model) {
+        model.addAttribute("productDTOs", service.findByFilter(filteredDto.getNameCategory(),
+                filteredDto.getPriceFrom(), filteredDto.getPriceTo(),
+                filteredDto.getRatingFrom(), filteredDto.getRatingTo()));
+        return "product_catalog";
     }
 
     @GetMapping(value = "/search/partial")
     public String findByPartOfName(@RequestParam(value = "part_of_name", required = true) String partOfName,
             Model model) {
-            model.addAttribute("productdtos", service.findByPartOfName(partOfName));
+            model.addAttribute("productDTOs", service.findByPartOfName(partOfName));
         return "product_catalog";
     }
 
@@ -112,37 +90,23 @@ public class WebAppController {
     /*public Collection<Product> findByCategoryPriceRating(String nameCategory, BigDecimal priceFrom, BigDecimal priceTo,
                                                          double ratingFrom, double ratingTo)*/
 
-    /*@GetMapping(value = "/search/jpql")
-    public String findJPQL(
-            @RequestParam(value = "name_research_project", required = false) String nameResearchProjectFromStudent,
-            @RequestParam(value = "index_of_course_first", required = false) Byte indexOfCourseFirst,
-            @RequestParam(value = "index_of_course_last", required = false) Byte indexOfCourseLast,
-            Model model) {
-        FilteredDto filteredDto = new FilteredDto(nameResearchProjectFromStudent, indexOfCourseFirst, indexOfCourseLast);
-        if (filteredDto.getNameResearchProjectFromStudent() != "" || filteredDto.getIndexOfCourseFirst() > 0 ||
-                filteredDto.getIndexOfCourseLast() > 0) {
-            ResponseEntity<ResearchProjectDto[]> responseEntity = restTemplate.postForEntity(url + "search/JPQL",
-                    filteredDto, ResearchProjectDto[].class);
-            List<ResearchProjectDto> list = Arrays.asList(responseEntity.getBody());
-            model.addAttribute("projectdtos", list);
-        }
-        return "project_list";
-    }*/
 
-    @ModelAttribute("productdto")
+    @ModelAttribute("productDTO")
     private ProductDTO createProductDTOModel() {
         return new ProductDTO();
     }
 
-    @ModelAttribute("shopdto")
+    @ModelAttribute("shopDTO")
     private ShopDTO createShopDTOModel() {
         return new ShopDTO();
     }
 
-    @ModelAttribute("categorydto")
+    @ModelAttribute("categoryDTO")
     private CategoryDTO createCategoryDTOModel() {
         return new CategoryDTO();
     }
+
+
 
     //<p th:text="'Category: ' + ${productdto.category.name}" /> from product.html line 19
 

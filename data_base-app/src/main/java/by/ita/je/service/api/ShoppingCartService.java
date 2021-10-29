@@ -8,5 +8,5 @@ public interface ShoppingCartService {
 
     ShoppingCart findById(Long id);
 
-    ShoppingCart update(ShoppingCart shoppingCart);
+    ShoppingCart update(Long id, ShoppingCart shoppingCart);
 }

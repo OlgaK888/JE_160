@@ -19,7 +19,7 @@
 <script type="text/javascript" src="script.js"></script>
 <br>
 <br>
-<form  id="search" method="get">
+<form  id="searchPartial" method="get">
 <tr>
     <td>Insert data for search</td>
     <td><input type="text" placeholder="" name="part_of_name"
@@ -27,6 +27,41 @@
 </tr>
     <button type="submit" formaction="/web-app/search/partial">Find</button>
 </form>
+<br>
+<br>
+<form  id="searchFiltered" method="get">
+    <table border="0">
+        <tr>
+            <td>Category product name:</td>
+            <td><input type="text" placeholder="" name="nameCategory"
+                       required pattern="^[a-zA-Z/s0-9]*$"/></td>
+        </tr>
+        <tr>
+            <td>Product price from:</td>
+            <td><input type="text" placeholder="" name="priceFrom"
+                       required pattern="(^[0-9]*)(\.[0-9])*$"/></td>
+        </tr>
+        <tr>
+            <td>Product price to:</td>
+            <td><input type="text" placeholder="" name="priceTo"
+                       required pattern="(^[0-9]*)(\.[0-9])*$"/></td>
+        </tr>
+        <tr>
+            <td>Product rating from:</td>
+            <td><input type="text" placeholder="" name="ratingFrom"
+                       required pattern="(^[0-9]*)(\.[0-9])*$"/></td>
+        </tr>
+        <tr>
+            <td>Product rating from:</td>
+            <td><input type="text" placeholder="" name="ratingTo"
+                       required pattern="(^[0-9]*)(\.[0-9])*$"/></td>
+        </tr>
+    </table>
+    <p>
+        <button type="submit" formaction="/web-app/search/filtered" >Find products</button>
+    </p>
+</form>
+
 <br>
 <br>
 <form action="/web-app/category/list" method="get" >

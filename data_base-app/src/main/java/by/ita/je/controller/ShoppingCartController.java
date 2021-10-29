@@ -29,10 +29,12 @@ public class ShoppingCartController {
     }
 
     @PutMapping(value = "/cart")
-    public ShoppingCartDTO updateShoppingCart(@RequestBody ShoppingCartDTO shoppingCartDTO) {
+    public ShoppingCartDTO updateShoppingCart(@RequestParam(value = "id", required = true) Long id,
+                                              @RequestBody ShoppingCartDTO shoppingCartDTO) {
 
         final ShoppingCart shoppingCart = objectMapper.convertValue(shoppingCartDTO, ShoppingCart.class);
 
-        return objectMapper.convertValue(shoppingCartService.update(shoppingCart), ShoppingCartDTO.class);
+        return objectMapper.convertValue(shoppingCartService.update(id, shoppingCart), ShoppingCartDTO.class);
     }
+
 }

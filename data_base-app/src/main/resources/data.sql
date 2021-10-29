@@ -91,6 +91,8 @@ create table shop (
     name varchar(255),
     city varchar(255),
     address varchar(255),
+    phone_number bigint not null,
+    working_hours varchar(255),
     delivery_id bigint,
     primary key (id));
 
@@ -216,26 +218,26 @@ values('1', '3');
 insert into payment_type_deliveries (payment_type_id, deliveries_id)
 values('3', '4');
 
-insert into product (name, description, price, rating, account_seller_id, comment_id, review_id)
-values('sofa Amatti', 'Big sofa 3200*1000*1000', '4900', '4.8', '1', '5', '5');
-insert into product (name, description, price, rating, account_seller_id, comment_id, review_id)
-values('sofa Altera', 'Standard classic sofa 2200*1000*1000', '3200', '4.5', '1', '3', '3');
-insert into product (name, description, price, rating, account_seller_id, comment_id, review_id)
-values('table Classic', 'Classic table 1500*850*750', '2000', '4.4', '2', '1', '1');
-insert into product (name, description, price, rating, account_seller_id, comment_id, review_id)
-values('table Optima', 'Compact table 1200*750*750', '1400', '4.9', '2', '2', '2');
-insert into product (name, description, price, rating, account_seller_id, comment_id, review_id)
-values('armchair Credo', 'Classic armchair 900*950*800', '1500', '4.2', '1', '6', '6');
-insert into product (name, description, price, rating, account_seller_id, comment_id, review_id)
-values('armchair Modum', 'Modern armchair 1000*850*900', '1600', '4.6', '1', '4', '4');
-insert into product (name, description, price, rating, account_seller_id, comment_id, review_id)
-values('chair Condor', 'Classic chair 500*600*1000', '900', '4.1', '2', '5', '5');
-insert into product (name, description, price, rating, account_seller_id, comment_id, review_id)
-values('chair Vinotti', 'Modern chair 500*600*900', '1000', '4.0', '2', '3', '3');
-insert into product (name, description, price, rating, account_seller_id, comment_id, review_id)
-values('bed Lumia', 'Classic bed 1960*2100', '1300', '4.4', '3', '1', '1');
-insert into product (name, description, price, rating, account_seller_id, comment_id, review_id)
-values('bed Edem', 'Modern bed 1700*2100', '1400', '4.6', '3', '5', '5');
+insert into product (name, description, price, rating, category_id, account_seller_id, comment_id, review_id)
+values('sofa Amatti', 'Big sofa 3200*1000*1000', '4900', '4.8','1', '7', '5', '5');
+insert into product (name, description, price, rating, category_id, account_seller_id, comment_id, review_id)
+values('sofa Altera', 'Standard classic sofa 2200*1000*1000', '3200', '4.5', '1', '7', '3', '3');
+insert into product (name, description, price, rating, category_id, account_seller_id, comment_id, review_id)
+values('table Classic', 'Classic table 1500*850*750', '2000', '4.4','2', '8', '1', '1');
+insert into product (name, description, price, rating, category_id, account_seller_id, comment_id, review_id)
+values('table Optima', 'Compact table 1200*750*750', '1400', '4.9', '2', '8', '2', '2');
+insert into product (name, description, price, rating, category_id, account_seller_id, comment_id, review_id)
+values('armchair Credo', 'Classic armchair 900*950*800', '1500', '4.2', '3', '7', '6', '6');
+insert into product (name, description, price, rating, category_id, account_seller_id, comment_id, review_id)
+values('armchair Modum', 'Modern armchair 1000*850*900', '1600', '4.6', '3', '7', '4', '4');
+insert into product (name, description, price, rating, category_id, account_seller_id, comment_id, review_id)
+values('chair Condor', 'Classic chair 500*600*1000', '900', '4.1', '4', '8', '5', '5');
+insert into product (name, description, price, rating, category_id, account_seller_id, comment_id, review_id)
+values('chair Vinotti', 'Modern chair 500*600*900', '1000', '4.0', '4', '8', '3', '3');
+insert into product (name, description, price, rating, category_id, account_seller_id, comment_id, review_id)
+values('bed Lumia', 'Classic bed 1960*2100', '1300', '4.4', '5', '9', '1', '1');
+insert into product (name, description, price, rating, category_id, account_seller_id, comment_id, review_id)
+values('bed Edem', 'Modern bed 1700*2100', '1400', '4.6', '5', '9', '5', '5');
 
 insert into category_products (category_id, products_id)
 values('1', '1');
@@ -267,16 +269,16 @@ values('2021-10-16', '1', '1500', '3');
 insert into purchase_order (order_time, status, sum, delivery_id)
 values('2021-10-12', '1', '900', '4');
 
-insert into shop (name, city, address)
-values('Calypso1', 'Minsk', 'Dzerginskogo str, 205');
-insert into shop (name, city, address)
-values('Calypso2', 'Minsk', 'Yakuba Kolasa str, 53');
-insert into shop (name, city, address)
-values('Calypso3', 'Minsk', 'Esenina str, 56');
-insert into shop (name, city, address)
-values('Calypso4', 'Brest', 'Moskovskaya str, 273');
-insert into shop (name, city, address)
-values('Calypso5', 'Grodno', 'Lenina str, 19');
+insert into shop (name, city, address, phone_number, working_hours)
+values('Calypso1', 'Minsk', 'Dzerginskogo str, 205', '375293764958', 'Mon - Fri 10.00 - 18.00, Sat - Sun 10.00 - 16.00');
+insert into shop (name, city, address, phone_number, working_hours)
+values('Calypso2', 'Minsk', 'Yakuba Kolasa str, 53', '375447857499', 'Mon - Fri 10.00 - 18.00, Sat - Sun 10.00 - 16.00');
+insert into shop (name, city, address, phone_number, working_hours)
+values('Calypso3', 'Minsk', 'Esenina str, 56', '375295738298', 'Mon - Fri 10.00 - 18.00, Sat - Sun 10.00 - 16.00');
+insert into shop (name, city, address, phone_number, working_hours)
+values('Calypso4', 'Brest', 'Moskovskaya str, 273', '375297823547', 'Mon - Fri 10.00 - 18.00, Sat - Sun 10.00 - 16.00');
+insert into shop (name, city, address, phone_number, working_hours)
+values('Calypso5', 'Grodno', 'Lenina str, 19', '375336896455', 'Mon - Fri 10.00 - 18.00, Sat - Sun 10.00 - 16.00');
 
 insert into shopping_cart (account_id)
 values('1');

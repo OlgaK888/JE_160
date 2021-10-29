@@ -12,14 +12,16 @@
 </form>
 <h1>Our shops</h1>
 <hr>
-<div th:if="${not #lists.isEmpty(shopdtos)}">
-    <div th:each="shopdto : ${shopdtos}">
+<div th:if="${not #lists.isEmpty(shopDTOs)}">
+    <div th:each="shopDTO : ${shopDTOs}">
         <form id="shop" method="get">
-            <input name="id" type="text" th:value= "${shopdto.id}" id="id" hidden="true"/>
+            <input name="id" type="text" th:value= "${shopDTO.id}" id="id" hidden="true"/>
         </form>
-        <p th:text="'City: ' + ${shopdto.city}" />
-        <p th:text="'Address: ' + ${shopdto.address}" />
-        <p th:text="'Shop name: ' + ${shopdto.name}" />
+        <p th:text="'City: ' + ${shopDTO.city}" />
+        <p th:text="'Address: ' + ${shopDTO.address}" />
+        <p th:text="'Shop name: ' + ${shopDTO.name}" />
+        <p th:text="'Phone number: ' + ${shopDTO.phoneNumber}" />
+        <p th:text="'Working hours: ' + ${shopDTO.workingHours}" />
         <hr>
     </div>
 </div>

@@ -7,7 +7,6 @@ C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\dto\ProductDTO.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\M3App.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\model\Review.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\controller\PaymentTypeController.java
-C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\dto\FilterByCategoryDTO.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\dto\FilterByPriceDTO.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\model\Account.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\service\api\AccountService.java
@@ -16,6 +15,7 @@ C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\service\SearcherServ
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\service\ReviewServiceImpl.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\dto\CategoryDTO.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\service\api\DeliveryService.java
+C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\dto\FilterByCategoryPriceRatingDTO.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\controller\ProductController.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\dao\PaymentTypeDAO.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\service\api\StatusService.java
@@ -41,6 +41,7 @@ C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\exception\NotFoundDa
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\service\AccountServiceImpl.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\service\ShopServiceImpl.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\dto\PurchaseOrderDTO.java
+C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\dao\SearcherCriteriaDAO.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\dto\FilterByPartOfNameDTO.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\service\StatusServiceImpl.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\model\Comment.java
@@ -48,12 +49,12 @@ C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\dao\ProductDAO.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\dao\ShoppingCartDAO.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\exception\NotCorrectDataException.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\service\BusinessServiceImpl.java
-C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\dao\PartialSearchDAO.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\model\Status.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\service\DeliveryServiceImpl.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\model\PaymentType.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\service\api\ShopService.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\controller\ShoppingCartController.java
+C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\dao\daoImpl\SearcherCriteriaDAOImpl.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\service\api\SearcherService.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\dao\AccountDAO.java
 C:\Users\lexak\JE_160\data_base-app\src\main\java\by\ita\je\service\api\PurchaseOrderService.java

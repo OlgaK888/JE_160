@@ -1,10 +1,7 @@
 package by.ita.je.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -41,9 +38,10 @@ public class Product {
     @JsonIgnore
     private Collection<ShoppingCart> shoppingCarts;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.MERGE, CascadeType.REFRESH},
+            fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
-    @JsonIgnore
     private Category category;
 
     @OneToOne(cascade = CascadeType.ALL)

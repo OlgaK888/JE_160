@@ -15,6 +15,7 @@ C:\Users\lexak\JE_160\web-app\src\main\java\by\ita\je\dto\ProductDTO.java
 C:\Users\lexak\JE_160\web-app\src\main\java\by\ita\je\dto\PurchaseOrderDTO.java
 C:\Users\lexak\JE_160\web-app\src\main\java\by\ita\je\dto\StatusDTO.java
 C:\Users\lexak\JE_160\web-app\src\main\java\by\ita\je\dto\CommentDTO.java
+C:\Users\lexak\JE_160\web-app\src\main\java\by\ita\je\dto\FilterByCategoryPriceRatingDTO.java
 C:\Users\lexak\JE_160\web-app\src\main\java\by\ita\je\dto\FilterByPriceDTO.java
 C:\Users\lexak\JE_160\web-app\src\main\java\by\ita\je\dto\ReviewDTO.java
 C:\Users\lexak\JE_160\web-app\src\main\java\by\ita\je\service\api\WebAppService.java

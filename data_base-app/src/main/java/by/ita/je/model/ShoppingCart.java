@@ -1,10 +1,11 @@
 package by.ita.je.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.ToString.Exclude;
-import lombok.experimental.FieldNameConstants;
-import net.bytebuddy.build.ToStringPlugin;
 
 import javax.persistence.*;
 import java.util.Collection;

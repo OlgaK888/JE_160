@@ -1,6 +1,7 @@
 package by.ita.je.service;
 
 import by.ita.je.dao.ShoppingCartDAO;
+import by.ita.je.exception.NotCorrectDataException;
 import by.ita.je.exception.NotFoundDataException;
 import by.ita.je.model.ShoppingCart;
 import by.ita.je.service.api.ShoppingCartService;
@@ -8,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.ZonedDateTime;
 
 @Service
 @RequiredArgsConstructor
@@ -17,8 +19,18 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Transactional
     @Override
-    public ShoppingCart create(ShoppingCart shoppingCart) {
-        return shoppingCartDAO.save(shoppingCart);
+    public ShoppingCart create(ShoppingCart shoppingCart) throws NotCorrectDataException {
+
+        try {
+
+            final ShoppingCart shoppingCart1 = shoppingCartDAO.save(shoppingCart);
+            return shoppingCart1;
+
+        } catch (Exception e) {
+
+            throw new NotCorrectDataException("Not correct data");
+        }
+
     }
 
     @Override
@@ -30,10 +42,13 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     @Transactional
     @Override
-    public ShoppingCart update(ShoppingCart shoppingCart) {
+    public ShoppingCart update(Long id, ShoppingCart shoppingCart) {
 
-        final ShoppingCart updateShoppingCart = shoppingCartDAO.save(shoppingCart);
+        final ShoppingCart updatedShoppingCart = shoppingCartDAO.findById(id)
+                .orElseThrow(() -> new NotFoundDataException("Shopping cart with id = " + id +
+                        " is not found"));
 
-        return updateShoppingCart;
+        return shoppingCartDAO.save(updatedShoppingCart);
     }
+
 }

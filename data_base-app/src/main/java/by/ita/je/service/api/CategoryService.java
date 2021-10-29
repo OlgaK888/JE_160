@@ -8,7 +8,7 @@ public interface CategoryService {
 
     Category findById(Long id);
 
-    Category findByName(String name);
+    //Category findByName(String name);
 
     Collection<Category> findAllCategories();
 

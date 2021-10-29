@@ -19,4 +19,6 @@ public class ShopDTO {
     private String name;
     private String city;
     private String address;
+    private long phoneNumber;
+    private String workingHours;
 }
