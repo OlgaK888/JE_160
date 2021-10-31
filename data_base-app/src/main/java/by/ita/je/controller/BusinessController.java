@@ -24,7 +24,8 @@ public class BusinessController {
     private final ShopService shopService;
     private final ShoppingCartService shoppingCartService;
 
-    public BusinessController(ObjectMapper objectMapper, BusinessService businessService, ProductService productService, ShopService shopService, ShoppingCartService shoppingCartService) {
+    public BusinessController(ObjectMapper objectMapper, BusinessService businessService, ProductService productService,
+                              ShopService shopService, ShoppingCartService shoppingCartService) {
         this.objectMapper = objectMapper;
         this.businessService = businessService;
         this.productService = productService;
@@ -53,18 +54,6 @@ public class BusinessController {
 
     }
 
-    /*@GetMapping("/products/by/category/{name}")
-    public Collection<ProductDTO> findProductsByCategory(@PathVariable ("name") String categoryName) {
-
-        Collection<Product> productCollection = businessService.findProductsByCategory(categoryName);
-        Collection<ProductDTO> productDTOCollection = productCollection.stream()
-                .map(product -> objectMapper.convertValue(product, ProductDTO.class))
-                .collect(Collectors.toList());
-
-        return productDTOCollection;
-
-    }*/
-
     @GetMapping("/products/by/category")
     public Collection<ProductDTO> getProductsByCategory(@RequestParam(value = "id", required = true) Long id) {
 
@@ -82,9 +71,5 @@ public class BusinessController {
 
         return objectMapper.convertValue(businessService.getCategoryByProduct(id), CategoryDTO.class);
     }
-
-
-
-
 
 }

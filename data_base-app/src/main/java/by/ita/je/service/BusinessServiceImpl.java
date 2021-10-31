@@ -25,29 +25,13 @@ public class BusinessServiceImpl implements BusinessService {
     private final ShoppingCartService shoppingCartService;
     private final CategoryService categoryService;
 
-    @Override
-    public Account findById(Long idAccount) {
-        Account account = accountService.findById(idAccount);
-        System.out.println(account);
-        return account;
-    }
-
-    @Override
-    public Product getProductToShop(Long idProduct) {
-        Product product = productService.findById(idProduct);
-        System.out.println(product);
-        return product;
-    }
-
     @Transactional
     @Override
     public ShoppingCart addProductToShoppingCart(Long idCart, Long idProduct) throws NotCorrectDataException {
 
         Product product = productService.findById(idProduct);
         ShoppingCart shoppingCart = shoppingCartService.findById(idCart);
-        /*if(shoppingCartService.findById(idCart) == null){
-            shoppingCartService.create(ShoppingCart.builder().build());
-        }*/
+
         Collection<Product> productCollection = shoppingCart.getProducts();
         if(shoppingCart.getProducts() == null){
             shoppingCart.setProducts(List.of(product));
@@ -55,31 +39,20 @@ public class BusinessServiceImpl implements BusinessService {
             productCollection.add(product);
         }
         ShoppingCart shoppingCartWithNewProduct = shoppingCartService.update(idCart,shoppingCart);
-        System.out.println("11  " + shoppingCart.getProducts());
-        System.out.println("22  " + shoppingCart);
 
         return shoppingCartWithNewProduct;
     }
 
     @Override
-    public Collection<Product> findAllProductsInShoppingCart(Long idCart) {
+    public List<Product> findAllProductsInShoppingCart(Long idCart) {
         final Spliterator<Product> result = shoppingCartService.findById(idCart).getProducts().spliterator();
         return StreamSupport
                 .stream(result,false)
                 .collect(Collectors.toList());
     }
 
-     /*@Override
-    public Collection<Product> findProductsByCategory(String categoryName) {
-        final Spliterator<Product> result = categoryService.findByName(categoryName).getProducts().spliterator();
-        return StreamSupport
-                .stream(result,false)
-                .collect(Collectors.toList());
-     }*/
-
     @Override
     public Collection<Product> getProductsByCategory(Long id) {
-        //final Spliterator<Product> result = categoryService.findById(Long.valueOf(id)).getProducts().spliterator();
         final Spliterator<Product> result = categoryService.findById(id).getProducts().spliterator();
         return StreamSupport
                 .stream(result,false)
