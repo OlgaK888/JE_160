@@ -138,62 +138,62 @@ alter table status add foreign key (purchase_order_id) references purchase_order
 
 
 insert into account (name, address, city, country, email, phone_number, postal_code)
-values('Elisaveta Petrova', 'Moskovskaya str, 266, 15', 'Brest', 'Belarus', 'elisaveta@mail.ru' , '375295768493', '224008');
+values('Test 1', 'Moskovskaya str, 266, 15', 'Brest', 'Belarus', 'elisaveta@mail.ru' , '375295768493', '224008');
 insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Oksana Zaitceva','Volodarskaya str, 314, 63', 'Minsk', 'Belarus', 'oksana@mail.ru',  '375293647759', '220435');
+VALUES('Test 2','Volodarskaya str, 314, 63', 'Minsk', 'Belarus', 'oksana@mail.ru',  '375293647759', '220435');
 insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Anton Sergeev', 'Sovetskaya str, 34, 29', 'Slonim', 'Belarus', 'anton@mail.ru' , '375293946138', '226028');
+VALUES('Test 3', 'Sovetskaya str, 34, 29', 'Slonim', 'Belarus', 'anton@mail.ru' , '375293946138', '226028');
 insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Vladimir Soloviev', 'Zamkovaya str, 34, 12', 'Minsk', 'Belarus', 'vladimir@mail.ru' , '375295629015', '220143');
+VALUES('Test 4', 'Zamkovaya str, 34, 12', 'Minsk', 'Belarus', 'vladimir@mail.ru' , '375295629015', '220143');
 insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Maksim Serov', 'Malaya str, 21, 10', 'Pinsk', 'Belarus', 'maksim@mail.ru' , '375297415253', '225637');
+VALUES('Test 5', 'Malaya str, 21, 10', 'Pinsk', 'Belarus', 'maksim@mail.ru' , '375297415253', '225637');
 insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Sergey Kovalev', 'Parkovaya str, 58, 30', 'Grodno', 'Belarus', 'sergey@mail.ru' , '375447816377', '226103');
+VALUES('Test 6', 'Parkovaya str, 58, 30', 'Grodno', 'Belarus', 'sergey@mail.ru' , '375447816377', '226103');
 insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Askona', 'Angarskaya str, 48', 'Minsk', 'Belarus', 'askona@mail.ru' , '375447349845', '220056');
+VALUES('Test 7', 'Angarskaya str, 48', 'Minsk', 'Belarus', 'askona@mail.ru' , '375447349845', '220056');
 insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Solo', 'Sadovaya str, 28', 'Minsk', 'Belarus', 'solo@mail.ru' , '375296733954', '220523');
+VALUES('Test 8', 'Sadovaya str, 28', 'Minsk', 'Belarus', 'solo@mail.ru' , '375296733954', '220523');
 insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Prima', 'Solnechnaya str, 14', 'Pinsk', 'Belarus', 'prima@mail.ru' , '375295637730', '225439');
+VALUES('Test 9', 'Solnechnaya str, 14', 'Pinsk', 'Belarus', 'prima@mail.ru' , '375295637730', '225439');
 
 insert into category (name)
-values('category for test');
+values('test1');
 insert into category (name)
-values('category for test');
+values('test2');
 
 
 insert into comment (account_id, message)
-values('1', 'This is good product');
+values('1', 'This is good test product');
 insert into comment (account_id, message)
-values('2', 'This is very good product');
+values('2', 'This is very good test product');
 insert into comment (account_id, message)
-values('3', 'This is not good product');
+values('3', 'This is not good test product');
 insert into comment (account_id, message)
-values('4', 'This is wonderful product');
+values('4', 'This is wonderful test product');
 insert into comment (account_id, message)
-values('5', 'This is product high quality');
+values('5', 'This is test product high quality');
 insert into comment (account_id, message)
-values('1', 'This is good product low quality');
+values('1', 'This is good test product low quality');
 
 insert into review (account_id, message)
-values('1', 'This is good service');
+values('1', 'This is good test service');
 insert into review (account_id, message)
-values('2', 'This is not good service');
+values('2', 'This is not good test service');
 insert into review (account_id, message)
-values('3', 'I am satisfied with service');
+values('3', 'I am satisfied with test service');
 insert into review (account_id, message)
-values('4', 'I am satisfied very match with service');
+values('4', 'I am satisfied very match with test service');
 insert into review (account_id, message)
-values('5', 'Thank you for your service');
+values('5', 'Thank you for your test service');
 insert into review (account_id, message)
-values('1', 'I am not satisfied with service');
+values('1', 'I am not satisfied with test service');
 
 insert into payment_type (type_name)
-values('cash');
+values('test 1');
 insert into payment_type (type_name)
-values('card');
+values('test 2');
 insert into payment_type (type_name)
-values('credit card');
+values('test 3');
 
 insert into delivery (delivery_time)
 values('2021-10-17');
@@ -233,9 +233,9 @@ insert into purchase_order (order_time, status, sum, delivery_id)
 values('2021-10-12', '1', '900', '4');
 
 insert into shop (name, city, address, phone_number, working_hours)
-values('Calypso1', 'Minsk', 'Dzerginskogo str, 205', '375293645298', 'Mon - Fri 10.00 - 18.00, Sat - Sun 10.00 - 16.00');
+values('Test shop 1', 'Minsk', 'Dzerginskogo str, 205', '375293645298', 'Mon - Fri 10.00 - 18.00, Sat - Sun 10.00 - 16.00');
 insert into shop (name, city, address, phone_number, working_hours)
-values('Calypso2', 'Minsk', 'Yakuba Kolasa str, 53', '375295673210', 'Mon - Fri 10.00 - 18.00, Sat - Sun 10.00 - 16.00');
+values('Test shop 2', 'Minsk', 'Yakuba Kolasa str, 53', '375295673210', 'Mon - Fri 10.00 - 18.00, Sat - Sun 10.00 - 16.00');
 
 insert into shopping_cart (account_id)
 values('1');
@@ -251,10 +251,10 @@ insert into shopping_cart (account_id)
 values('6');
 
 insert into status (name)
-values('new');
+values('test 1');
 insert into status (name)
-values('paying');
+values('test 2');
 insert into status (name)
-values('delivery');
+values('test 3');
 insert into status (name)
-values('done');
+values('test 4');

@@ -45,16 +45,6 @@ public class ShoppingCartServiceImplTest {
         Mockito.verify(shoppingCartDAO,Mockito.times(1)).save(shoppingCartForTesting);
     }
 
-    /*@Test
-    void whenCreate_throwNotCorrectDataException() {
-
-        NotCorrectDataException notCorrectDataException = Assertions.assertThrows(NotCorrectDataException.class,
-                ()-> shoppingCartService.create(getShoppingCart()));
-
-        Assertions.assertEquals(notCorrectDataException.getMessage(),"Not correct data");
-        Mockito.verify(shoppingCartDAO,Mockito.times(0)).save(getShoppingCart());
-    }*/
-
     @Test
     void whenFindById_returnShoppingCart() {
 
@@ -96,7 +86,7 @@ public class ShoppingCartServiceImplTest {
     @Test
     void whenUpdate_throwNotFoundDataException() {
 
-        ShoppingCart researchProjectForTesting = shoppingCartForTesting();
+        ShoppingCart shoppingCartForTesting = shoppingCartForTesting();
         Mockito.when(shoppingCartDAO.findById(100L)).thenReturn(Optional.empty());
 
         NotFoundDataException notFoundDataException = Assertions.assertThrows(NotFoundDataException.class,

@@ -21,7 +21,7 @@ public class SearcherCriteriaDAOImpl implements SearcherCriteriaDAO {
 
 
 
-    @Override
+    /*@Override
     public List<Product> findByCategoryPriceRating(String nameCategory, BigDecimal priceFrom, BigDecimal priceTo,
                                                          double ratingFrom, double ratingTo) {
 
@@ -35,9 +35,9 @@ public class SearcherCriteriaDAOImpl implements SearcherCriteriaDAO {
                         cb.equal(categoryJoin.get(Category_.NAME), nameCategory)))));
         TypedQuery<Product> typedQuery = entityManager.createQuery(criteriaQuery);
         return typedQuery.getResultList();
-    }
+    }*/
 
-    /*@Override
+    @Override
     public List<Product> findByCategoryPriceRating(String nameCategory, BigDecimal priceFrom, BigDecimal priceTo,
                                                          double ratingFrom, double ratingTo) {
 
@@ -73,13 +73,13 @@ public class SearcherCriteriaDAOImpl implements SearcherCriteriaDAO {
             criteriaQuery.where(predicateForPriceRating);
         if (nameCategory != "" && priceTo.compareTo(BigDecimal.ZERO) > 0 && ratingTo > 0.00)
             criteriaQuery.where(predicateForCategoryPriceRating);
-        Predicate finalPredicate = cb.or(predicateForCategoryPriceRating,
+        Predicate finalPredicate = cb.and(predicateForCategoryPriceRating,
                 predicateForCategoryPrice, predicateForCategoryRating,
                 predicateForPriceRating, predicateForCategory, predicateForPrice, predicateForRating);
         criteriaQuery.where(finalPredicate);
         List<Product> products = entityManager.createQuery(criteriaQuery).getResultList();
         return products;
-    }*/
+    }
 }
 
 

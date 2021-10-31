@@ -32,15 +32,6 @@ public class BusinessController {
         this.shoppingCartService = shoppingCartService;
     }
 
-
-    /*@GetMapping("/product/to/shopping/cart/{id}")
-    public AccountDTO getAccount(@PathVariable ("id") Long id) {
-
-        return objectMapper.convertValue(businessService.findById(id), AccountDTO.class);
-
-    }*/
-
-
     @PutMapping("/product/to/shopping/cart/{id_cart}/{id_product}")
     public ShoppingCartDTO addProductToShoppingCart(@PathVariable ("id_cart") Long idCart,
                                                     @PathVariable ("id_product") Long idProduct) {

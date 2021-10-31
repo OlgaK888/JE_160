@@ -39,7 +39,7 @@ public class SearcherServiceImpl implements SearcherService {
     public Collection<Product> findByPartOfName(String partOfName) {return searcherDAO.findByPartOfName(partOfName); }*/
 
     @Override
-    public ArrayList<Product> findByPartOfName(String partOfName) {return searcherDAO.findByPartOfName(partOfName); }
+    public Collection<Product> findByPartOfName(String partOfName) {return searcherDAO.findByPartOfName(partOfName); }
 
     @Override
     public Collection<Product> findByCategoryPriceRating(String nameCategory, BigDecimal priceFrom, BigDecimal priceTo,

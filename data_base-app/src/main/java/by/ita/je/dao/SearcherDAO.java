@@ -28,6 +28,6 @@ public interface SearcherDAO extends JpaRepository<Product, Long> {
     /*@Query("SELECT p.name FROM Product p WHERE p.name LIKE CONCAT('%',:partOfName,'%')")
     Collection<Product> findByPartOfName(String partOfName);*/
 
-    @Query("SELECT p.name FROM Product p WHERE p.name LIKE CONCAT('%',:partOfName,'%')")
-    ArrayList<Product> findByPartOfName(String partOfName);
+    @Query("SELECT p FROM Product p WHERE p.name LIKE CONCAT('%',:partOfName,'%')")
+    Collection<Product> findByPartOfName(String partOfName);
 }
