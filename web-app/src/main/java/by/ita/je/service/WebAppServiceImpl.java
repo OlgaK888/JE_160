@@ -18,7 +18,7 @@ import java.util.Objects;
 public class WebAppServiceImpl implements WebAppService {
 
     private final RestTemplate restTemplate;
-    private final String url="http://localhost:8003/data_base-app/";
+    private final String url="http://database-app:8003/data_base-app/";
 
     @Override
     public Collection<ProductDTO> getProductCatalog(){

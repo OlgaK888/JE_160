@@ -1,27 +1,24 @@
-drop table if exists users;
-drop table if exists roles;
-drop table if exists users_roles;
+drop table if exists users_roles cascade;
+drop table if exists users cascade;
+drop table if exists roles cascade;
 
-
-CREATE TABLE users (
-  id bigint NOT NULL AUTO_INCREMENT,
-  login varchar(50) NOT NULL,
-  password varchar(100) NOT NULL,
-  PRIMARY KEY (id)
+CREATE TABLE IF NOT EXISTS users (
+  id bigserial PRIMARY KEY,
+  login character varying(50) NOT NULL,
+  password character varying(100) NOT NULL
 );
 
-CREATE TABLE roles (
-  id bigint NOT NULL AUTO_INCREMENT,
-  role_name varchar(50) NOT NULL,
-  PRIMARY KEY (id)
+CREATE TABLE IF NOT EXISTS roles (
+  id bigserial PRIMARY KEY,
+  role_name character varying(50) NOT NULL
 );
 
-CREATE TABLE users_roles (
+CREATE TABLE IF NOT EXISTS users_roles (
   user_id bigint NOT NULL,
   role_id bigint NOT NULL,
   PRIMARY KEY (user_id, role_id),
-  CONSTRAINT role_fk FOREIGN KEY (user_id) REFERENCES users (id),
-  CONSTRAINT user_fk FOREIGN KEY (role_id) REFERENCES roles (id)
+  FOREIGN KEY (user_id) REFERENCES users (id),
+  FOREIGN KEY (role_id) REFERENCES roles (id)
 );
 
 INSERT INTO users (login, password)
