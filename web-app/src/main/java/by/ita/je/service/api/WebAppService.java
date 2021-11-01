@@ -18,8 +18,6 @@ public interface WebAppService {
 
     Collection<CategoryDTO> getAllCategories();
 
-    //Collection<ProductDTO> getAllProductsByCategory(String categoryName);
-
     Collection<ProductDTO> findAllProductsByCategory(Long id);
 
     ProductDTO getProduct(Long id);

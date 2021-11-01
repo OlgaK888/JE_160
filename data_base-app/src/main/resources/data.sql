@@ -1,3 +1,18 @@
+drop table if exists account CASCADE;
+drop table if exists category CASCADE;
+drop table if exists comment CASCADE;
+drop table if exists review CASCADE;
+drop table if exists payment_type CASCADE;
+drop table if exists purchase_order CASCADE;
+drop table if exists shop CASCADE;
+drop table if exists delivery CASCADE;
+drop table if exists payment_type_deliveries CASCADE;
+drop table if exists product CASCADE;
+drop table if exists category_products CASCADE;
+drop table if exists shopping_cart CASCADE;
+drop table if exists shopping_cart_product CASCADE;
+drop table if exists status CASCADE;
+
 CREATE TABLE IF NOT EXISTS account (
     id bigserial PRIMARY KEY,
     name character varying(255),
@@ -32,8 +47,7 @@ CREATE TABLE IF NOT EXISTS review (
 
 CREATE TABLE IF NOT EXISTS payment_type (
     id bigserial PRIMARY KEY,
-    type_name character varying(255),
-    primary key (id)
+    type_name character varying(255)
 );
 
 CREATE TABLE IF NOT EXISTS purchase_order (
@@ -128,7 +142,7 @@ ALTER TABLE comment ADD COLUMN IF NOT EXISTS product_id bigint REFERENCES produc
 ALTER TABLE review ADD COLUMN IF NOT EXISTS product_id bigint REFERENCES product(id);
 
 insert into account (name, address, city, country, email, phone_number, postal_code)
-values('Elisaveta Petrova', 'Moskovskaya str, 266, 15', 'Brest', 'Belarus', 'elisaveta@mail.ru' , '375295768493', '224008');
+values('Julia Petrova', 'Moskovskaya str, 266, 15', 'Brest', 'Belarus', 'elisaveta@mail.ru' , '375295768493', '224008');
 insert into account (name, address, city, country, email, phone_number, postal_code)
 VALUES('Oksana Zaitceva','Volodarskaya str, 314, 63', 'Minsk', 'Belarus', 'oksana@mail.ru',  '375293647759', '220435');
 insert into account (name, address, city, country, email, phone_number, postal_code)

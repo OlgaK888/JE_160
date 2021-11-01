@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -76,6 +77,10 @@
 <br>
 <form action="/web-app/shops/list" method="get" >
     <button type="submit">Our shops</button>
+</form>
+<br>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="EXIT" />
 </form>
 </body>
 </html>
