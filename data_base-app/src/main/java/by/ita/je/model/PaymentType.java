@@ -24,4 +24,5 @@ public class PaymentType {
     @OneToMany
     @JsonIgnore
     private Collection<Delivery> deliveries;
+
 }

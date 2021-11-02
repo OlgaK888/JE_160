@@ -32,4 +32,5 @@ public class Delivery {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "payment_type_id")
     private PaymentType paymentType;
+
 }

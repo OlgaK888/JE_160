@@ -76,8 +76,6 @@ public class WebAppServiceImpl implements WebAppService {
             ResponseEntity<ProductDTO[]> responseEntity = restTemplate.postForEntity(url + "search/partial",
                     filteredDto, ProductDTO[].class);
         List<ProductDTO> list = List.of(responseEntity.getBody());
-            //list = Arrays.asList(responseEntity.getBody());
-        //}
         return list;
     }
 

@@ -19,3 +19,4 @@ public class CommentDTO {
     private String message;
     private long accountId;
 }
+

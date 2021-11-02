@@ -38,20 +38,6 @@ public class AccountControllerTestIT {
     @Autowired
     private AccountService accountService;
 
-    /*private Account accountForTesting() {
-
-        Account account = getAccount();
-        account.setName("Michail");
-        account.setPhoneNumber(375291234567L);
-        account.setCountry("Belarus");
-        account.setEmail("michail@mail.ru");
-        return account;
-    }
-
-    private Account getAccount() {
-        return new Account();
-    }*/
-
     @Test
     @SneakyThrows
     public void when_getAccount_returnOK() {

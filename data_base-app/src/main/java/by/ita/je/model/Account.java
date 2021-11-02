@@ -19,26 +19,14 @@ public class Account {
     private long id;
     private String name;
     private long phoneNumber;
-    private  String address;
-    private  String city;
+    private String address;
+    private String city;
     private int postalCode;
     private String country;
     private String email;
 
-    /*@OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "account_id")
-    private Collection<Product> ShoppingCart;*/
-
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "shopping_cart_id")
     private ShoppingCart shoppingCart;
-
-    /*@OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "account_id")
-    private Collection<PurchaseOrder> orderToBy;*/
-
-    /*@OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "account_id")
-    private Collection<PurchaseOrder> orderToSell;*/
 
 }

@@ -13,4 +13,5 @@ public class FilterByPriceDTO {
 
     private BigDecimal priceFrom;
     private BigDecimal priceTo;
+
 }

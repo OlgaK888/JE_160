@@ -18,10 +18,8 @@ public class PurchaseOrderDTO {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    //private long customerId;
     private BigDecimal sum;
     private DeliveryDTO delivery;
-    //private Collection<ProductDTO> products;
     private Collection<StatusDTO> statuses;
 
 }

@@ -21,4 +21,5 @@ public class ShopDTO {
     private String address;
     private long phoneNumber;
     private String workingHours;
+
 }

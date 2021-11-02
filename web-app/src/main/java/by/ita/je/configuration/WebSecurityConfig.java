@@ -1,6 +1,6 @@
 package by.ita.je.configuration;
 
-import by.ita.je.service.api.UserDetailsServiceImpl;
+import by.ita.je.service.UserDetailsServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;

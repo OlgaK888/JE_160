@@ -20,24 +20,6 @@ public class SearcherServiceImpl implements SearcherService {
     private final SearcherDAO searcherDAO;
     private final SearcherCriteriaDAO searcherCriteriaDAO;
 
-    /*@Override
-    public Collection<Product> findByRating(double ratingFrom, double ratingTo) {
-        return searcherDAO.findByRating(ratingFrom, ratingTo);
-    }
-
-    @Override
-    public Collection<Product> findByPrice(BigDecimal priceFrom, BigDecimal priceTo) {
-        return searcherDAO.findByPrice(priceFrom, priceTo);
-    }
-
-    @Override
-    public Collection<Product> findByCategory(String nameCategory) {
-        return searcherDAO.findByCategory(nameCategory);
-    }*/
-
-    /*@Override
-    public Collection<Product> findByPartOfName(String partOfName) {return searcherDAO.findByPartOfName(partOfName); }*/
-
     @Override
     public Collection<Product> findByPartOfName(String partOfName) {return searcherDAO.findByPartOfName(partOfName); }
 

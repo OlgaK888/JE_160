@@ -1,4 +1,4 @@
-package by.ita.je.service.api;
+package by.ita.je.service;
 
 import by.ita.je.configuration.MyUserDetails;
 import by.ita.je.dao.UserDao;

@@ -21,7 +21,5 @@ public class AccountDTO {
     private String country;
     private String email;
     private ShoppingCartDTO shoppingCart;
-    //private Collection<PurchaseOrder> orderToBy;
-    //private Collection<PurchaseOrder> orderToSell;
 
 }

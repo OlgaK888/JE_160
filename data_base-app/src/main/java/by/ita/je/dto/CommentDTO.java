@@ -18,4 +18,5 @@ public class CommentDTO {
     private long id;
     private String message;
     private long accountId;
+
 }

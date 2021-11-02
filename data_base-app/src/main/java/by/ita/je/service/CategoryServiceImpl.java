@@ -25,20 +25,6 @@ public class CategoryServiceImpl implements CategoryService {
         return category;
     }
 
-    /*@Override
-    public Category findByName(String name) throws NotFoundDataException {
-        try {
-
-            final Category category = categoryDAO.findByName(name);
-            return category;
-
-        } catch (Exception e) {
-
-        throw new NotFoundDataException("Category" + name + " is not found");
-
-        }
-    }*/
-
     @Override
     public Collection<Category> findAllCategories() {
         final Spliterator<Category> result = categoryDAO.findAll().spliterator();

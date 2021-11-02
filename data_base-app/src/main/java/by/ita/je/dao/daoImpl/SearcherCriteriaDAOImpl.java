@@ -19,8 +19,6 @@ public class SearcherCriteriaDAOImpl implements SearcherCriteriaDAO {
     @PersistenceContext
     EntityManager entityManager;
 
-
-
     /*@Override
     public List<Product> findByCategoryPriceRating(String nameCategory, BigDecimal priceFrom, BigDecimal priceTo,
                                                          double ratingFrom, double ratingTo) {

@@ -59,30 +59,6 @@ public class CategoryServiceImplTest {
         Mockito.verify(categoryDAO, Mockito.times(1)).findById(100L);
     }
 
-    /*@Test
-    void whenFindByName_returnCategory() {
-
-        Category categoryForTesting = categoryForTesting();
-        Mockito.when(categoryDAO.findByName("cupboard")).thenReturn(Optional.of(categoryForTesting));
-
-        final Category actual =  categoryService.findByName("cupboard");
-        final Category expected = getCategory();
-
-        Assertions.assertEquals(expected, actual);
-        Mockito.verify(categoryDAO, Mockito.times(1)).findByName("cupboard");
-    }
-
-    @Test
-    void whenFindByName_throwNotFoundDataException() {
-
-        Mockito.when(categoryDAO.findByName("car")).thenReturn(empty());
-
-        NotFoundDataException notFoundDataException = Assertions.assertThrows(NotFoundDataException.class,
-                () ->  categoryService.findByName("car"));
-        Assertions.assertEquals(notFoundDataException.getMessage(), "Category " + "car" + " is not found");
-        Mockito.verify(categoryDAO, Mockito.times(1)).findByName("car");
-    }*/
-
     @Test
     void whenFindAll_returnCategories() {
 

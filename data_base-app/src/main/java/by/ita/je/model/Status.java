@@ -24,4 +24,5 @@ public class Status {
     @JoinColumn(name = "purchase_order_id")
     @JsonIgnore
     private PurchaseOrder purchaseOrder;
+
 }

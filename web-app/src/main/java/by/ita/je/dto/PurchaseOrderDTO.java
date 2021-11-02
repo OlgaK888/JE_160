@@ -22,7 +22,6 @@ public class PurchaseOrderDTO {
     private BigDecimal sum;
     private String status;
     private DeliveryDTO delivery;
-    //private Collection<ProductDTO> products;
     private Collection<StatusDTO> statuses;
 
 }

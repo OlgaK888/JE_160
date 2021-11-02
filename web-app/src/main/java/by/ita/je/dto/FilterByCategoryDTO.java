@@ -10,4 +10,5 @@ import lombok.NoArgsConstructor;
 public class FilterByCategoryDTO {
 
     private String nameCategory;
+
 }

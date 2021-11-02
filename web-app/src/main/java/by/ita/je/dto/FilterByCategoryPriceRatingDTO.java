@@ -16,4 +16,5 @@ public class FilterByCategoryPriceRatingDTO {
     private BigDecimal priceTo;
     private double ratingFrom;
     private double ratingTo;
+
 }

@@ -24,4 +24,5 @@ public class ProductDTO {
     private CategoryDTO category;
     private ReviewDTO review;
     private CommentDTO comment;
+
 }

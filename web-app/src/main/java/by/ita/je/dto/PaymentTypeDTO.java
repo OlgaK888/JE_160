@@ -17,4 +17,5 @@ public class PaymentTypeDTO {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String typeName;
+
 }

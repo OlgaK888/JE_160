@@ -37,10 +37,4 @@ public class ShoppingCart {
     @JoinColumn(name = "purchase_order_id")
     private PurchaseOrder purchaseOrder;
 
-    /*@OneToOne(cascade = CascadeType.ALL)
-    private PurchaseOrder purchaseOrder;*/
-
-    /*@OneToOne(cascade = CascadeType.ALL)
-    private PurchaseOrder purchaseOrder;*/
-
 }

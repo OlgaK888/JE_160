@@ -11,4 +11,5 @@ public class FilterByRatingDTO {
 
     private double ratingFrom;
     private double ratingTo;
+
 }
