@@ -19,22 +19,6 @@ public class SearcherCriteriaDAOImpl implements SearcherCriteriaDAO {
     @PersistenceContext
     EntityManager entityManager;
 
-    /*@Override
-    public List<Product> findByCategoryPriceRating(String nameCategory, BigDecimal priceFrom, BigDecimal priceTo,
-                                                         double ratingFrom, double ratingTo) {
-
-        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
-        CriteriaQuery<Product> criteriaQuery = cb.createQuery(Product.class);
-        Root<Product> productRoot = criteriaQuery.from(Product.class);
-        Join<Product, Category> categoryJoin = productRoot.join(Product_.CATEGORY);
-        criteriaQuery.select(productRoot);
-        criteriaQuery.where(cb.and(cb.between(productRoot.get(Product_.PRICE), priceFrom, priceTo),
-                (cb.and(cb.between(productRoot.get(Product_.RATING), ratingFrom, ratingTo),
-                        cb.equal(categoryJoin.get(Category_.NAME), nameCategory)))));
-        TypedQuery<Product> typedQuery = entityManager.createQuery(criteriaQuery);
-        return typedQuery.getResultList();
-    }*/
-
     @Override
     public List<Product> findByCategoryPriceRating(String nameCategory, BigDecimal priceFrom, BigDecimal priceTo,
                                                          double ratingFrom, double ratingTo) {
