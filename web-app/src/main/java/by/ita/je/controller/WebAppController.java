@@ -54,6 +54,11 @@ public class WebAppController {
         return "product";
     }
 
+    @GetMapping(value = "/product/to/cart")
+    public String cart() {
+        return "shopping_cart";
+    }
+
     @GetMapping("/search/filtered")
     public String findByFilter(@ModelAttribute FilterByCategoryPriceRatingDTO filteredDto, Model model) {
         model.addAttribute("productDTOs", service.findByFilter(filteredDto.getNameCategory(),

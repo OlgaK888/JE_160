@@ -22,6 +22,9 @@
 <p th:text="'Review: ' + ${productDTO.review.message}" />
 <p th:text="'Comment: ' + ${productDTO.comment.message}" />
 <br>
+<button>
+    <a th:href="@{/product/to/cart}">Add to shopping cart</a>
+</button>
 <div class="imagesContainer">
     <img class="imageItem" src="https://interoline.by/assets/images/products/Gwinner/living/Gwinner-lucca-7.jpg">
 </div>
