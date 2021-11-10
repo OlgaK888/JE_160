@@ -8,8 +8,7 @@ import by.ita.je.service.api.ShoppingCartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
-import java.time.ZonedDateTime;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -17,7 +16,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
 
     private final ShoppingCartDAO shoppingCartDAO;
 
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     @Override
     public ShoppingCart create(ShoppingCart shoppingCart) throws NotCorrectDataException {
 
@@ -40,7 +39,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         return shoppingCart;
     }
 
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     @Override
     public ShoppingCart update(Long id, ShoppingCart shoppingCart) {
 

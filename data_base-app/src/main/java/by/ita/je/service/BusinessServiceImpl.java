@@ -9,7 +9,7 @@ import by.ita.je.model.ShoppingCart;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import java.util.Collection;
 import java.util.List;
 import java.util.Spliterator;
@@ -25,7 +25,7 @@ public class BusinessServiceImpl implements BusinessService {
     private final ShoppingCartService shoppingCartService;
     private final CategoryService categoryService;
 
-    @Transactional
+    @Transactional(rollbackFor=Exception.class)
     @Override
     public ShoppingCart addProductToShoppingCart(Long idCart, Long idProduct) throws NotCorrectDataException {
 
