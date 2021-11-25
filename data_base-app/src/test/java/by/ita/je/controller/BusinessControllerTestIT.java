@@ -5,10 +5,7 @@ import by.ita.je.dto.ProductDTO;
 import by.ita.je.dto.ShopDTO;
 import by.ita.je.dto.ShoppingCartDTO;
 import by.ita.je.exception.NotFoundDataException;
-import by.ita.je.model.Category;
-import by.ita.je.model.Product;
-import by.ita.je.model.Shop;
-import by.ita.je.model.ShoppingCart;
+import by.ita.je.model.*;
 import by.ita.je.service.api.AccountService;
 import by.ita.je.service.api.BusinessService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -63,37 +60,31 @@ public class BusinessControllerTestIT {
                 .andExpect(status().isOk());
     }
 
-    /*@Test
+    @Test
     @SneakyThrows
-    public void getAllProductsInShoppingCart_returnOK()  {
+    public void when_addProductToShoppingCartByCurrentAccount_returnOK() {
 
-        long idCart = 1L;
+        long idAccount = 1L;
+        long idProduct = 1L;
 
-        Collection<Product> products = businessService.findAllProductsInShoppingCart(idCart);
-        Collection<ProductDTO> collect = products.stream()
-                .map(product -> objectMapper.convertValue(product, ProductDTO.class))
-                .collect(Collectors.toList());
+        ShoppingCart shoppingCart = businessService.addProductToShoppingCartByCurrentAccount(idAccount, idProduct);
         mockMvc.perform(
-                get("/all/product/in/cart/{id_cart}"))
-                .andExpect(status().isOk())
-                .andExpect(content().json(objectMapper.writeValueAsString(collect)));
-    }*/
+                MockMvcRequestBuilders.put("/product/to/shopping/cart/{idAccount}/{idProduct}", idAccount, idProduct))
+                .andExpect(status().isOk());
+    }
 
-    /*@Test
+    @Test
     @SneakyThrows
-    public void when_getProductsByCategory_returnOK() {
+    public void when_addProductToBookmarks_returnOK() {
 
-        long id = 2L;
+        long idAccount = 1L;
+        long idProduct = 1L;
 
-        Collection<Product> productCollection = businessService.getProductsByCategory(id);
-        Collection<ProductDTO> productDTOCollection = productCollection.stream()
-                .map(product -> objectMapper.convertValue(product, ProductDTO.class))
-                .collect(Collectors.toList());
+        Bookmarks bookmarks = businessService.addProductToBookmarksByCurrentAccount(idAccount, idProduct);
         mockMvc.perform(
-                get("products/by/category?id=" + id, id))
-                .andExpect(status().isOk())
-                .andExpect(content().json(objectMapper.writeValueAsString(productDTOCollection)));
-    }*/
+                MockMvcRequestBuilders.put("/product/to/bookmarks/{idAccount}/{idProduct}", idAccount, idProduct))
+                .andExpect(status().isOk());
+    }
 
     @Test
     @SneakyThrows

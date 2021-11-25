@@ -19,11 +19,12 @@ public class User {
     private Long id;
     private String login;
     private String password;
+    private long accountId;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name ="users_roles"
-            ,joinColumns = @JoinColumn(name = "user_id")
-            ,inverseJoinColumns = @JoinColumn(name = "role_id"))
+            , joinColumns = @JoinColumn(name = "user_id")
+            , inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
 
 }

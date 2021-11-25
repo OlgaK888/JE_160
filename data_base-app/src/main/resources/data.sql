@@ -141,24 +141,24 @@ ALTER TABLE account ADD COLUMN IF NOT EXISTS shopping_cart_id bigint REFERENCES 
 ALTER TABLE comment ADD COLUMN IF NOT EXISTS product_id bigint REFERENCES product(id);
 ALTER TABLE review ADD COLUMN IF NOT EXISTS product_id bigint REFERENCES product(id);
 
-insert into account (name, address, city, country, email, phone_number, postal_code)
-values('Julia Petrova', 'Moskovskaya str, 266, 15', 'Brest', 'Belarus', 'elisaveta@mail.ru' , '375295768493', '224008');
-insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Oksana Zaitceva','Volodarskaya str, 314, 63', 'Minsk', 'Belarus', 'oksana@mail.ru',  '375293647759', '220435');
-insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Anton Sergeev', 'Sovetskaya str, 34, 29', 'Slonim', 'Belarus', 'anton@mail.ru' , '375293946138', '226028');
-insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Vladimir Soloviev', 'Zamkovaya str, 34, 12', 'Minsk', 'Belarus', 'vladimir@mail.ru' , '375295629015', '220143');
-insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Maksim Serov', 'Malaya str, 21, 10', 'Pinsk', 'Belarus', 'maksim@mail.ru' , '375297415253', '225637');
-insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Sergey Kovalev', 'Parkovaya str, 58, 30', 'Grodno', 'Belarus', 'sergey@mail.ru' , '375447816377', '226103');
-insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Askona', 'Angarskaya str, 48', 'Minsk', 'Belarus', 'askona@mail.ru' , '375447349845', '220056');
-insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Solo', 'Sadovaya str, 28', 'Minsk', 'Belarus', 'solo@mail.ru' , '375296733954', '220523');
-insert into account (name, address, city, country, email, phone_number, postal_code)
-VALUES('Prima', 'Solnechnaya str, 14', 'Pinsk', 'Belarus', 'prima@mail.ru' , '375295637730', '225439');
+insert into account (name, address, city, country, email, phone_number, postal_code, shopping_cart_id)
+values('Julia Petrova', 'Moskovskaya str, 266, 15', 'Brest', 'Belarus', 'elisaveta@mail.ru' , '375295768493', '224008', 1);
+insert into account (name, address, city, country, email, phone_number, postal_code, shopping_cart_id)
+VALUES('Oksana Zaitceva','Volodarskaya str, 314, 63', 'Minsk', 'Belarus', 'oksana@mail.ru',  '375293647759', '220435', 2);
+insert into account (name, address, city, country, email, phone_number, postal_code, shopping_cart_id)
+VALUES('Anton Sergeev', 'Sovetskaya str, 34, 29', 'Slonim', 'Belarus', 'anton@mail.ru' , '375293946138', '226028', 3);
+insert into account (name, address, city, country, email, phone_number, postal_code, shopping_cart_id)
+VALUES('Vladimir Soloviev', 'Zamkovaya str, 34, 12', 'Minsk', 'Belarus', 'vladimir@mail.ru' , '375295629015', '220143', 4);
+insert into account (name, address, city, country, email, phone_number, postal_code, shopping_cart_id)
+VALUES('Maksim Serov', 'Malaya str, 21, 10', 'Pinsk', 'Belarus', 'maksim@mail.ru' , '375297415253', '225637', 5);
+insert into account (name, address, city, country, email, phone_number, postal_code, shopping_cart_id)
+VALUES('Sergey Kovalev', 'Parkovaya str, 58, 30', 'Grodno', 'Belarus', 'sergey@mail.ru' , '375447816377', '226103', 6);
+insert into account (name, address, city, country, email, phone_number, postal_code, shopping_cart_id)
+VALUES('Askona', 'Angarskaya str, 48', 'Minsk', 'Belarus', 'askona@mail.ru' , '375447349845', '220056', 7);
+insert into account (name, address, city, country, email, phone_number, postal_code, shopping_cart_id)
+VALUES('Solo', 'Sadovaya str, 28', 'Minsk', 'Belarus', 'solo@mail.ru' , '375296733954', '220523', 8);
+insert into account (name, address, city, country, email, phone_number, postal_code, shopping_cart_id)
+VALUES('Prima', 'Solnechnaya str, 14', 'Pinsk', 'Belarus', 'prima@mail.ru' , '375295637730', '225439', 9);
 
 insert into category (name)
 values('sofa');

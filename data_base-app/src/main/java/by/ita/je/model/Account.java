@@ -33,6 +33,10 @@ public class Account {
     @JoinColumn(name = "shopping_cart_id")
     private ShoppingCart shoppingCart;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bookmarks_id")
+    private Bookmarks bookmarks;
+
     /*@OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "account_id")
     private Collection<PurchaseOrder> orderToBy;*/

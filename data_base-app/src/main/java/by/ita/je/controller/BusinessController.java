@@ -1,19 +1,26 @@
 package by.ita.je.controller;
 
+import by.ita.je.dto.BookmarksDTO;
 import by.ita.je.dto.CategoryDTO;
 import by.ita.je.dto.ProductDTO;
+import by.ita.je.exception.NotCorrectDataException;
 import by.ita.je.model.Category;
 import by.ita.je.model.Product;
+import by.ita.je.model.ShoppingCart;
 import by.ita.je.service.api.BusinessService;
 import by.ita.je.service.api.ProductService;
 import by.ita.je.service.api.ShopService;
 import by.ita.je.service.api.ShoppingCartService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import by.ita.je.dto.ShoppingCartDTO;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.Spliterator;
 import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @RestController
 public class BusinessController {
@@ -42,6 +49,22 @@ public class BusinessController {
 
     }
 
+    @PutMapping("/product/to/shopping/cart/by/account/{id_account}/{id_product}")
+    public ShoppingCartDTO addProductToShoppingCartByCurrentAccount(@PathVariable ("id_account") Long idAccount,
+                                                                    @PathVariable ("id_product") Long idProduct) {
+
+        return objectMapper.convertValue(businessService.addProductToShoppingCartByCurrentAccount(idAccount, idProduct),
+                ShoppingCartDTO.class);
+    }
+
+    @PutMapping("/product/to/bookmarks/by/account/{id_account}/{id_product}")
+    public BookmarksDTO addProductToBookmarksByCurrentAccount(@PathVariable ("id_account") Long idAccount,
+                                                              @PathVariable ("id_product") Long idProduct) {
+
+        return objectMapper.convertValue(businessService.addProductToBookmarksByCurrentAccount(idAccount, idProduct),
+                BookmarksDTO.class);
+    }
+
     @GetMapping("/all/product/in/cart/{id_cart}")
     public Collection<ProductDTO> getAllProductsInShoppingCart(@PathVariable ("id_cart") Long idCart) {
 
@@ -52,6 +75,17 @@ public class BusinessController {
 
         return productDTOCollection;
 
+    }
+
+    @GetMapping("/all/product/in/cart/by/account/{id_account}")
+    public Collection<ProductDTO> findAllProductsInShoppingCartByCurrentAccount(@PathVariable ("id_account") Long idAccount) {
+
+        Collection<Product> productCollection = businessService.findAllProductsInShoppingCartByCurrentAccount(idAccount);
+        Collection<ProductDTO> productDTOCollection = productCollection.stream()
+                .map(product -> objectMapper.convertValue(product, ProductDTO.class))
+                .collect(Collectors.toList());
+
+        return productDTOCollection;
     }
 
     @GetMapping("/products/by/category")

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+  <meta charset="UTF-8">
+  <title>Products in shopping cart</title>
+</head>
+<body>
+<form id="home_page" method="get" ></form>
+<form id="shopping_cart" method="get">
+  <input name="id" type="text" th:value= "${cartDTO.id}" id="id" hidden="true"/>
+</form>
+<button type="submit" form="home_page" formaction="/web-app/">To home page</button>
+<br>
+<br>
+<h3>Shopping cart</h3>
+<div th:if="${not #lists.isEmpty(cartDTO.products)}"></div>
+<p th:text="'Product name: ' + ${productDTO.name}" />
+<p th:text="'Price: ' + ${productDTO.price}" />
+<br>
+<br>
+</body>
+</html>
